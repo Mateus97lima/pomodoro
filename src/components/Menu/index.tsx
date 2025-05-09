@@ -2,6 +2,7 @@
 import { HistoryIcon, HomeIcon, MoonIcon, Settings,  SunIcon } from 'lucide-react';
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react';
+import { RoutersLink } from '../../RoutersLink';
  
 type AvalibTheme = 'Dark'  | 'light'
 
@@ -40,21 +41,21 @@ type AvalibTheme = 'Dark'  | 'light'
     return (
         <nav className={styles.menu}>
          
-         <a className={styles.menuLink} href="#" aria-label='ir para home' title='ir para home'>
+         <RoutersLink className={styles.menuLink} href="/" aria-label='ir para home' title='ir para home'>
             <HomeIcon/>
-         </a>
+         </RoutersLink>
 
-         <a className={styles.menuLink} href="#" aria-label='Ver historico' title='Ver historico'>
+         <RoutersLink className={styles.menuLink} href="/history/" aria-label='Ver historico' title='Ver historico'>
             <HistoryIcon/>
-         </a>
+         </RoutersLink>
 
-         <a className={styles.menuLink} href="#" aria-label='Ir pras Configuranções' title='Ir pras Configuranções'>
+         <RoutersLink className={styles.menuLink} href="setting]/" aria-label='Ir pras Configuranções' title='Ir pras Configuranções'>
             <Settings/>
-         </a>
+         </RoutersLink>
 
-         <a className={styles.menuLink} href="#" aria-label='Mudar tema' title='Mudar tema' onClick={handletheme}>
+         <RoutersLink className={styles.menuLink} href="#" aria-label='Mudar tema' title='Mudar tema' onClick={handletheme}>
             {nextIcon[theme]}
-         </a>
+         </RoutersLink>
         </nav>
     ); 
 }

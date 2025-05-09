@@ -17,12 +17,14 @@ import { showMessage } from "../../adapters/showMessage";
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
   const TaskInput = useRef<HTMLInputElement>(null);
+  const lastTaskName = state.tasKs[state.tasKs.length -1]?.name || '';
 
   const nextCyles = getNextCycles(state.currentCycle);
   const nextSeconds = getNextCyclesType(nextCyles);
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    showMessage.dismiss();
 
     if (TaskInput.current === null) return;
 
@@ -44,10 +46,14 @@ export function MainForm() {
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+
+    showMessage.sucess('task iniciada')
   }
 
   function handleClickInterrup() {
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
+    showMessage.dismiss()
+    showMessage.error('tarefa interrompida!')
   }
 
   return (
@@ -60,6 +66,7 @@ export function MainForm() {
           placeholder="Diga sua missão de hoje"
           ref={TaskInput}
           disabled={!!state.activeTask}
+          defaultValue={lastTaskName}
         />
       </div>
 

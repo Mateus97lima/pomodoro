@@ -1,7 +1,10 @@
+
 import { Container } from "../../components/Container";
 import { GenericHtml } from "../../components/GenericHtml";
 import { Heading } from "../../components/Heading";
+import { RoutersLink } from "../../RoutersLink";
 import { MainTemplate } from "../../templades/MainTemplate";
+import styles from './styles.module.css'
 
 
 
@@ -11,8 +14,8 @@ export function AboutPomodoro() {
        <Container>
        <GenericHtml>
        <Heading>A Técnica Pomodoro 🍅</Heading>
- 
- <p>
+ <div  className={styles.inform}>
+ <p >
    A Técnica Pomodoro é uma metodologia de produtividade criada por{' '}
    <strong>Francesco Cirillo</strong>, que consiste em dividir o
    trabalho em blocos de tempo (os famosos "Pomodoros") intercalados
@@ -50,7 +53,7 @@ export function AboutPomodoro() {
  <p>
    Você pode configurar o tempo de foco, descanso curto e descanso
    longo do jeito que quiser! Basta acessar a{' '}
-   <a href='/settings'>página de configurações</a> e ajustar os minutos
+   <RoutersLink href='/settings'>página de configurações</RoutersLink> e ajustar os minutos
    como preferir.
  </p>
 
@@ -96,7 +99,7 @@ export function AboutPomodoro() {
  <h3>📊 Histórico automático</h3>
  <p>
    Todas as suas tarefas e ciclos concluídos ficam salvos no{' '}
-   <a href='/history'>histórico</a>, com status de completas ou
+   <RoutersLink href='/history/'>histórico</RoutersLink>, com status de completas ou
    interrompidas. Assim, você consegue acompanhar sua evolução ao longo
    do tempo.
  </p>
@@ -111,13 +114,14 @@ export function AboutPomodoro() {
 
  <p>
    <strong>Pronto pra focar?</strong> Bora lá{' '}
-   <a href='/'>voltar para a página inicial</a> e iniciar seus
+   <RoutersLink href='/'>voltar para a página inicial</RoutersLink> e iniciar seus
    Pomodoros! 🍅🚀
  </p>
 
  <p>
    <em>"Foco total, sem pressa, sem pausa, só vai!"</em> 💪🧘‍♂️
  </p>
+ </div>
        </GenericHtml>
    
        </Container>
